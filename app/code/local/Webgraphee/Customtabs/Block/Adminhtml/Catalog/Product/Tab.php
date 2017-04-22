@@ -1,6 +1,6 @@
 <?php
 
-class Fishpig_Customtabs_Block_Adminhtml_Catalog_Product_Tab extends Mage_Adminhtml_Block_Template implements Mage_Adminhtml_Block_Widget_Tab_Interface {
+class Webgraphee_Customtabs_Block_Adminhtml_Catalog_Product_Tab extends Mage_Adminhtml_Block_Template implements Mage_Adminhtml_Block_Widget_Tab_Interface {
 
 	/**
 	 * Set the template for the block

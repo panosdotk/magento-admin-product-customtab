@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <config>
 	 <modules>
-		 <Fishpig_Customtabs>
+		 <Webgraphee_Customtabs>
 			 <active>true</active>
 			 <codePool>local</codePool>
-		 </Fishpig_Customtabs>
+		 </Webgraphee_Customtabs>
 	 </modules>
 </config>

@@ -1,10 +1,51 @@
 <?php
 /**
- * Custom tab template
- */
+*	echo $_product->getShortDescription(); //product's short description
+*	echo $_product->getDescription(); // product's long description
+*	echo $_product->getName(); //product name
+*	echo $_product->getPrice(); //product's regular Price
+*	echo $_product->getSpecialPrice(); //product's special Price
+*	echo $_product->getProductUrl(); //product url
+*	echo $_product->getImageUrl(); //product's image url
+*	echo $_product->getSmallImageUrl(); //product's small image url
+*	echo $_product->getThumbnailUrl(); //product's thumbnail image url  
+**/
+
+$wgProduct = Mage::registry('product'); //getting product
+$wgProductName = $wgProduct->getName(); //get Product Name
+$wgProductSku = $wgProduct->getData(sku); //get Product SKU
+$wgProductPriceRaw = $wgProduct->getPrice(); //get Product Price
+$wgProductPrice = substr($wgProductPriceRaw, 0, -2);
+$cutNameString = substr($wgProductName, 0, strpos($wgProductName, '('));
+$labelProductName = substr(strstr($cutNameString, 'για '), 6);
+$qrCodeImg = 'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='.$wgProductSku.'&choe=UTF-8';
+
 ?>
 
+
+
+<div class="test"><p><?php echo $wgProductName ?></p></div>
+<div class="test"><p><?php echo $wgProductSku ?></p></div>
+<div class="test"><p><?php echo $wgProductPrice ?></p></div>
+<div class="test"><p><?php echo $firstcut ?></p></div>
+<div class="test" style="font-size: 16px;"><p><?php echo $labelProductName ?></p></div>
 <div class="input-field">
 	<label for="custom_field">Custom Field</label>
-	<input class="input-text" name="custom_field" id="custom_field" />
+	<input class="input-text" name="custom_field" id="custom_field" value="<?php echo $wgProductSku?>"/>
 </div>
+
+<div class="sample-label-container" style="background-color: #f5f5f5; width: 100%; text-align: center;">
+	<div class="sample-label" style="background-color: #fff; border: 1px solid #000; border-radius: 5px; width: 50%;">
+		<h3><?php echo $labelProductName ?></h3>
+		<br />
+		<h2>Τιμή: <?php echo $wgProductPrice ?>€</h2>
+		<p><?php echo($wgProductSku) ?></p>
+		<div><img src="<?php echo $qrCodeImg ?>" alt="QR Code" height="150" width="150"></div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+		var prodName = document.getElementById('custom_field').value;
+	console.log(prodName);
+</script>

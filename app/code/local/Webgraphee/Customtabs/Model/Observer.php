@@ -1,6 +1,6 @@
 <?php
  
-class Fishpig_Customtabs_Model_Observer
+class Webgraphee_Customtabs_Model_Observer
 {
 	/**
 	 * Flag to stop observer executing more than once
